@@ -6,6 +6,8 @@
 
 <code>python manage.py runserver</code>
 
+Адрес: http://localhost:8000/account/
+
 #### Для сохранения изображений (jpg, jpeg, png):
 
 http://localhost:8000/images/create/?url=<Ссылка_на_изображение>
