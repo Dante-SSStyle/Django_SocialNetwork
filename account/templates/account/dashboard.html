@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h1>Рабочий стол</h1>
+    {% with total_images_created=request.user.images_created.count %}
+        <p>Добро пожаловать на рабочий стол. Вы сохранили изображений:
+        {{total_images_created }}.</p>
+    {% endwith %}
+    <p>Перетащите кнопку на ваши закладки, чтобы добавлять в закладки изображения с других сайтов
+    <a href="javascript:{% include "bookmarklet_launcher.js" %}" class="button">
+    В закладки</a>
+    </p>
+    <p>Вы также можете <a href="{% url "edit" %}">редактировать ваш профиль</a> или
+    <a href="{% url "password_change" %}">сменить свой пароль</a>.
+    </p>
+    <h2>Стена Дурова</h2>
+    <div id="action-list">
+    {% for action in actions %}
+        {% include "actions/action/detail.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}
